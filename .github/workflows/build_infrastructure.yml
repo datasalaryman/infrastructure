@@ -12,11 +12,24 @@ jobs:
         uses: actions/checkout@master
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
-      - name: Build terraform plan
+      - name: Import terraform secrets
         env:
           TERRAFORM_SECRETS: ${{ secrets.TERRAFORM_SECRETS }}
         run: >
           echo $TERRAFORM_SECRETS > ./main.auto.tfvars
-          terraform init
-          terraform plan -no-color -input=false
-          terraform apply -auto-approve -input=false
+
+      - name: Initialize terraform project
+        run: terraform init
+
+      - name: Create terraform plan
+        id: plan
+        run: terraform plan -no-color
+        continue-on-error: true
+
+      - name: Check terraform plan status
+        id: status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Apply terraform plan
+        run: terraform apply -auto-approve -input=false
