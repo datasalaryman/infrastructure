@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+       - main
+
+jobs:
+  test_rstudio_container_run:
+    name: Build infrastructure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Build terraform plan
+        env:
+          TERRAFORM_SECRETS: ${{ secrets.TERRAFORM_SECRETS }}
+        run: >
+          echo $TERRAFORM_SECRETS > ./main.auto.tfvars
+          terraform apply -auto-approve
