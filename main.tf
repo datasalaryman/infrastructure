@@ -28,3 +28,11 @@ resource "linode_instance" "dev_server" {
     type = "g6-nanode-1"
     root_pass = var.root_pass
 }
+
+resource "linode_instance" "proxy_server" {
+    label = "proxy_server"
+    image = "linode/ubuntu18.04"
+    region = "ap-south"
+    type = "g6-nanode-1"
+    root_pass = var.root_pass
+}
