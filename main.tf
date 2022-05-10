@@ -21,8 +21,8 @@ provider "linode" {
     token = var.linode_token
 }
 
-resource "linode_instance" "test_instance" {
-    label = "test_instance"
+resource "linode_instance" "dev_server" {
+    label = "dev_server"
     image = "linode/ubuntu18.04"
     region = "ap-south"
     type = "g6-nanode-1"
