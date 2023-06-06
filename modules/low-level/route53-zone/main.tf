@@ -16,7 +16,7 @@ variable "vpc_id" {
   default     = null
 }
 
-resource "aws_route53_zone" "zone" {
+resource "aws_route53_zone" "private" {
   name = var.name
 
   dynamic "vpc" {
@@ -28,5 +28,5 @@ resource "aws_route53_zone" "zone" {
 }
 
 output "zone_id" {
-  value = aws_route53_zone.zone.zone_id
+  value = aws_route53_zone.private.zone_id
 }
