@@ -31,6 +31,11 @@ module "divcenter_routes" {
   record_file = "divcenter.json"
 }
 
+module "divcenter_certificate" {
+  source = "./modules/low-level/acm-cert"
+  domain_name = "divcenter.xyz"
+}
+
 module "master_key_pairs" {
   source = "./modules/low-level/key-pair"
   key_name_prefix = "master_key_"
