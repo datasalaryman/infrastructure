@@ -22,12 +22,12 @@ provider "aws" {
 
 module "datasalaryman_domain" {
   source = "./modules/low-level/route53-zone"
-  name = "datasalaryman.com"
+  name = "divcenter.xyz"
 }
 
 module "master_key_pairs" {
   source = "./modules/low-level/key-pair"
   key_name_prefix = "master_key_"
-  public_keys_file = "./src/keys/master.txt"
+  public_keys_file = "./src/keys/master.pub"
 }
 

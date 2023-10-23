@@ -1,3 +1,0 @@
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINpVzJCUSX+QfzYL/PIB65uFU8cJzgVy6lXNOfAr+L8j datasalaryman@protonmail.com
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINlKkJjAsCNLNNgsKuksTB1Po0vPJZDrh/t2pvp3egs5 francis.endrinal@gmail.com
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5N6UtxLWtsU8DaENBEaynIM1o+Tz1XQOPBctQ+/Yf4 francis.endrinal@gmail.com
