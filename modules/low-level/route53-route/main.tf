@@ -15,6 +15,14 @@ variable "record_file" {
   description = "file containing the record config in json format"
 }
 
+locals {
+  private_file_dir = "${path.module}/../../../src/routes/private/${var.record_file}"
+  public_file_dir = "${path.module}/../../../src/routes/public/${var.record_file}"
+  private_file = fileexists(local.private_file_dir) ? file(local.private_file_dir) : "[]"
+  public_file = fileexists(local.public_file_dir) ? file(local.public_file_dir) : "[]"
+  records_json = concat(jsondecode(local.private_file), jsondecode(local.public_file))
+}
+
 resource "aws_route53_record" "record" {
   for_each = {for record in local.records_json: join("", [record["Name"], "-", record["Type"]]) => record}
   zone_id = var.zone_id

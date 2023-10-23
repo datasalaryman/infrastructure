@@ -20,9 +20,15 @@ provider "aws" {
   #  profile = "personal"
 }
 
-module "datasalaryman_domain" {
+module "divcenter_zone" {
   source = "./modules/low-level/route53-zone"
   name = "divcenter.xyz"
+}
+
+module "divcenter_routes" {
+  source = "./modules/low-level/route53-route"
+  zone_id = module.divcenter_zone.zone_id
+  record_file = "divcenter.json"
 }
 
 module "master_key_pairs" {
