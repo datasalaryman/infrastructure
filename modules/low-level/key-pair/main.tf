@@ -24,3 +24,9 @@ resource "aws_key_pair" "key" {
   key_name_prefix = var.key_name_prefix
   public_key = each.value
 }
+
+output "key_pair_names" {
+  value = [
+    for key in aws_key_pair.key: key.id
+  ]
+}
