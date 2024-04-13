@@ -42,8 +42,3 @@ module "master_key_pairs" {
   public_keys_file = "./src/keys/master.pub"
 }
 
-module "k8s-the-hard-way-setup" {
-  source = "./modules/high-level/k8s-hard-way"
-  key_pair = module.master_key_pairs.key_pair_names[0]
-}
-
