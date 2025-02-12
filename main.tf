@@ -26,3 +26,11 @@ module "master_key_pairs" {
   public_keys_file = "./src/keys/master.pub"
 }
 
+module "dev_environment" {
+  source = "./modules/low-level/ec2"
+  instance_name = "endrinal_dev"
+  ami = "ami-051557d87f0e75fff"
+  type = "r7g.large"
+  key_pair = module.master_key_pairs.key_pair_names[0]
+}
+
