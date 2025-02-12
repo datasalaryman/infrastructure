@@ -20,22 +20,6 @@ provider "aws" {
   #  profile = "personal"
 }
 
-module "divcenter_zone" {
-  source = "./modules/low-level/route53-zone"
-  name = "divcenter.xyz"
-}
-
-module "divcenter_routes" {
-  source = "./modules/low-level/route53-route"
-  zone_id = module.divcenter_zone.zone_id
-  record_file = "divcenter.json"
-}
-
-module "divcenter_certificate" {
-  source = "./modules/low-level/acm-cert"
-  domain_name = "divcenter.xyz"
-}
-
 module "master_key_pairs" {
   source = "./modules/low-level/key-pair"
   key_name_prefix = "master_key_"
