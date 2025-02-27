@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "solpromises.xyz.",
+    "Type": "A",
+    "TTL": 300,
+    "ResourceRecords": [
+      {
+        "Value": "76.76.21.21"
+      }
+    ]
+  },
+  {
+    "Name": "www.solpromises.xyz.",
+    "Type": "CNAME",
+    "TTL": 300,
+    "ResourceRecords": [
+      {
+        "Value": "cname.vercel-dns.com."
+      }
+    ]
+  }
+]

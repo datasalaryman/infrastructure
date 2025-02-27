@@ -34,3 +34,13 @@ module "dev_environment" {
   key_pair = module.master_key_pairs.key_pair_names[0]
 }
 
+module "solpromises_ns" {
+  source = "./modules/low-level/route53-zone"
+  name = "solpromises.xyz"
+}
+
+module "solpromises_ns_routes" {
+  source = "./modules/low-level/route53-route"
+  zone_id = module.solpromises_ns.zone_id
+  record_file = "solpromises.json"
+}
