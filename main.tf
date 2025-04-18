@@ -44,3 +44,8 @@ module "solpromises_ns_routes" {
   zone_id = module.solpromises_ns.zone_id
   record_file = "solpromises.json"
 }
+
+module "readylayerone_ns" {
+  source = "./modules/low-level/route53-zone"
+  name = "readylayerone.xyz"
+}
